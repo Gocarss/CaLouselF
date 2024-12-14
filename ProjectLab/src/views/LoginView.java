@@ -11,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
@@ -26,11 +27,13 @@ public class LoginView extends Application{
 	Alert alert;
 	
 	GridPane gpForm;
-	HBox hbTitle;
+	HBox hbTitle, hbRegisterlink;
 	
 	Label loginLabel, usernameLabel, passwordLabel;
 	
-	TextField usernameField, passwordField;
+	TextField usernameField;
+	
+	PasswordField passwordField;
 	
 	Button loginButton;
 	Hyperlink registerLink;
@@ -41,13 +44,14 @@ public class LoginView extends Application{
 		
 		gpForm = new GridPane();
 		hbTitle = new HBox();
+		hbRegisterlink = new HBox();
 		
 		loginLabel = new Label("Login");
 		usernameLabel = new Label("Username");
 		passwordLabel = new Label("Password");
 		
 		usernameField = new TextField();
-		passwordField = new TextField();
+		passwordField = new PasswordField();
 		
 		loginButton = new Button("Login");
 		registerLink = new Hyperlink("Register a new account");
@@ -72,17 +76,19 @@ public class LoginView extends Application{
 		gpForm.add(loginButton, 0, 4);
 		
 		// RegisterLink
-		gpForm.add(registerLink, 0, 5);		
+		hbRegisterlink.getChildren().add(registerLink);
+		hbRegisterlink.setAlignment(Pos.CENTER);
+		gpForm.add(hbRegisterlink, 0, 5);		
 		
 		// Set size for gridpane
-		gpForm.setVgap(7);
-		gpForm.setPadding(new Insets(20, 20, 20, 20)); 
+		gpForm.setVgap(6);
+		gpForm.setPadding(new Insets(6, 40, 40, 40)); 
 		gpForm.setAlignment(Pos.CENTER);
 		
 		bp.setTop(hbTitle);
 		BorderPane.setMargin(hbTitle, new Insets(10));
 		
-		bp.setBottom(gpForm);
+		bp.setCenter(gpForm);
 		BorderPane.setMargin(gpForm, new Insets(10));
 	}
 	
@@ -109,7 +115,6 @@ public class LoginView extends Application{
 		}
 		
 		User user = UserController.getInstance().Login(username, password);
-		
 		if(user != null) {
 			HomepageView homepage = new HomepageView(user.getUser_id(), user.getRole());
 			try {

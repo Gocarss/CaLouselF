@@ -29,7 +29,7 @@ public class UserController {
 		return userModel.Register(Username, Password, Phone_Number, Address, Role);
 	}
 	
-	public String checkAccountValidation(String Username, String Password, String Phone_Number, String Address) {
-		return userModel.CheckAccountValidation(Username, Password, Phone_Number, Address);
+	public String checkAccountValidation(String Username, String Password, String Phone_Number, String Address, String confirmPassword) {
+		return userModel.CheckAccountValidation(Username, Password, Phone_Number, Address, confirmPassword);
 	}
 }

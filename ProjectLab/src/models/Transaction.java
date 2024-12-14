@@ -114,7 +114,7 @@ public class Transaction {
 				String Item_Category = rs.getString("item_category");
 				String Item_Size = rs.getString("item_size");
 				Double price = rs.getDouble("item_price");
-				String Item_Price = price.toString();
+				String Item_Price = "$ " + price.toString();
 				itemDetails = new Item(null, Item_Name, Item_Size, Item_Price, Item_Category, null);
 			}
 		} catch (SQLException e) {

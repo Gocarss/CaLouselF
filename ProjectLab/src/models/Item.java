@@ -240,7 +240,7 @@ public class Item {
 					String Item_Category = rs.getString("item_category");
 					String Item_Size = rs.getString("item_size");
 					Double price = rs.getDouble("item_price");
-					String Item_Price = price.toString();
+					String Item_Price = "$ " + price.toString();
 					reviewItems.add(new Item(null, Item_Name, Item_Size, Item_Price, Item_Category, null));
 				}
 			}
@@ -298,7 +298,25 @@ public class Item {
 		return false;
 	}
 	
-	public Double getCurrentOffer(String Item_id) {
+	public String getCurrentOfferBuyer(String Item_id) {
+		String query = "SELECT * FROM `offer` WHERE `item_id`=?";
+		PreparedStatement ps = Connect.getConnection().prepareStatement(query);
+		try {
+			ps.setString(1, Item_id);
+			ResultSet rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				return rs.getString("buyer_id");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public Double getCurrentOfferPrice(String Item_id) {
 		String query = "SELECT * FROM `offer` WHERE `item_id`=?";
 		PreparedStatement ps = Connect.getConnection().prepareStatement(query);
 		try {
@@ -438,7 +456,7 @@ public class Item {
 					String Item_Category = rs.getString("item_category");
 					String Item_Size = rs.getString("item_size");
 					Double price = rs.getDouble("item_price");
-					String Item_Price = price.toString();
+					String Item_Price = "$ " + price.toString();
 					acceptedItems.add(new Item(item_id, Item_Name, Item_Size, Item_Price, Item_Category, null));
 				}
 			}
@@ -469,7 +487,7 @@ public class Item {
 					String Item_Category = rs1.getString("item_category");
 					String Item_Size = rs1.getString("item_size");
 					Double price = rs1.getDouble("item_price");
-					String Item_Price = price.toString();
+					String Item_Price = "$ " + price.toString();
 					offeredItems.add(new Item(Item_id, Item_Name, Item_Size, Item_Price, Item_Category, null));
 				}
 			}

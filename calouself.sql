@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2024 at 05:54 AM
+-- Generation Time: Dec 14, 2024 at 06:15 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.7
 
@@ -42,10 +42,26 @@ CREATE TABLE `item` (
 --
 
 INSERT INTO `item` (`item_id`, `item_name`, `item_category`, `item_size`, `item_price`, `item_status`, `seller_id`) VALUES
-('1', 'Saw III', 'Movies', 'SA', 40, 'sold', 'SE6blIbcj'),
-('3', 'Jordan One', 'Footwear', '32', 120, 'approved', 'SE6blIbcj'),
-('4', 'Nike short', 'Pants', 'M', 45, 'sold', 'SE6blIbcj'),
-('ITCW2mrc6', 'NEW! Supreme Shirt', 'Shirt', 'L', 200, 'approved', 'SE6blIbcj');
+('IT2N1cItd', 'Formal Suit Blazer', 'Blazer', 'L', 150, 'approved', 'SEtH097MQ'),
+('IT4JcYAMC', 'Lightweight Windbreaker', 'Jacket', 'M', 48, 'approved', 'SEZheZTKT'),
+('IT5mwE5Jo', 'Hooded Sweatshirt', 'Hoodie', 'XL', 45, 'approved', 'SEtH097MQ'),
+('IT8OuQmWz', 'Plaid Flannel Shirt', 'Shirt', 'M', 28, 'approved', 'SEgrAS8d2'),
+('ITaVhWz2f', 'Cotton Cargo Pants', 'Pants', 'XL', 35, 'approved', 'SEZheZTKT'),
+('ITEEgHWgk', 'Classic White Shirt', 'Shirt', 'M', 25, 'approved', 'SEa9YT6ZR'),
+('ITeN33ium', 'Woolen Winter Sweater', 'Sweater', 'M', 50, 'approved', 'SEgrAS8d2'),
+('ITerOytnt', 'Graphic Print T-Shirt', 'Shirt', 'M', 22, 'approved', 'SEtH097MQ'),
+('ITgOn7JUW', 'Comfy Lounge Sweatpants', 'Pants', 'M', 32, 'approved', 'SEZheZTKT'),
+('ITGxQAikU', 'Sports Running Shorts', 'Shorts', 'M', 18, 'approved', 'SEgrAS8d2'),
+('IThSInj0a', 'Basic Crew Neck Tee', 'Shirt', 'S', 15, 'approved', 'SEZheZTKT'),
+('ITJYRTfnD', 'Vintage Denim Jacket', 'Jacket', 'L', 80, 'approved', 'SEgrAS8d2'),
+('ITk76vCL4', 'Slim Fit Jeans', 'Pants', 'L', 40, 'approved', 'SEa9YT6ZR'),
+('ITKqjfFuu', 'Summer Floral Dress', 'Dress', 'S', 35, 'approved', 'SEa9YT6ZR'),
+('ITLQfJrrh', 'Silk Party Gown', 'Dress', 'S', 120, 'approved', 'SEtH097MQ'),
+('ITn6TPnME', 'Oversized Graphic Hoodie', 'Hoodie', 'L', 55, 'approved', 'SEZheZTKT'),
+('ITpLwAI8B', 'Casual Polo T-Shirt', 'Shirt', 'L', 20, 'approved', 'SEa9YT6ZR'),
+('ITUZFTXa7', 'Waterproof Raincoat', 'Jacket', 'M', 60, 'approved', 'SEtH097MQ'),
+('ITwGujW00', 'Black Leather Jacket', 'Jacket', 'XL', 100, 'approved', 'SEa9YT6ZR'),
+('ITyaNGKMn', 'Stretch Yoga Leggings', 'Pants', 'S', 30, 'approved', 'SEgrAS8d2');
 
 -- --------------------------------------------------------
 
@@ -66,8 +82,23 @@ CREATE TABLE `offer` (
 --
 
 INSERT INTO `offer` (`offer_id`, `item_id`, `buyer_id`, `offer_price`, `offer_status`) VALUES
-('OFGX0ip4t', '4', '1', 100, 'accept'),
-('OFvrdVMNc', '3', '1', 50, 'pending');
+('OF2rQam4Z', 'ITpLwAI8B', 'BUpXyjomD', 15, 'pending'),
+('OF4uR0NOx', 'IThSInj0a', 'BUyINTmZT', 11, 'pending'),
+('OF8fHg2QE', 'ITLQfJrrh', 'BUd3i0qL8', 85, 'pending'),
+('OF9bfJI7a', 'ITGxQAikU', 'BUd3i0qL8', 15, 'pending'),
+('OFbc7ZtFz', 'ITgOn7JUW', 'BUFwO7Ivx', 10, 'pending'),
+('OFcpvdySe', 'ITerOytnt', 'BUyINTmZT', 22, 'pending'),
+('OFcXIXMAH', 'IT5mwE5Jo', 'BUpXyjomD', 35, 'pending'),
+('OFEiX2Cpq', 'ITyaNGKMn', 'BUd3i0qL8', 10, 'pending'),
+('OFi2D0mQY', 'ITaVhWz2f', 'BUyINTmZT', 22, 'pending'),
+('OFJaanQot', 'ITk76vCL4', 'BUpXyjomD', 15, 'pending'),
+('OFL1SIWsi', 'ITUZFTXa7', 'BUFwO7Ivx', 50, 'pending'),
+('OFl9VTDbE', 'ITJYRTfnD', 'BUpXyjomD', 55, 'pending'),
+('OFnEymObK', 'IT4JcYAMC', 'BUFwO7Ivx', 16, 'pending'),
+('OFNhSOV3H', 'ITwGujW00', 'BUFwO7Ivx', 66, 'pending'),
+('OFvjoz1PM', 'ITeN33ium', 'BUpXyjomD', 34, 'pending'),
+('OFvWdVwIY', 'IT2N1cItd', 'BUd3i0qL8', 90, 'pending'),
+('OFy8m2S51', 'ITn6TPnME', 'BUyINTmZT', 11, 'pending');
 
 -- --------------------------------------------------------
 
@@ -87,9 +118,8 @@ CREATE TABLE `reason` (
 --
 
 INSERT INTO `reason` (`reason_id`, `reason_text`, `item_id`, `user_id`) VALUES
-('RE0tMs5NC', 'Hell naw', '3', 'SE6blIbcj'),
-('REgRxKLj1', 'You think you cooking lil bro', '1', 'SE6blIbcj'),
-('RESzzacLQ', 'Wtf is that name', 'ITJfboq5a', 'admin');
+('RERgQ21aC', 'Only Clothing', 'ITpwgDYZy', 'admin'),
+('REVekA8hO', 'Only Clothing', 'IT553hQn8', 'admin');
 
 -- --------------------------------------------------------
 
@@ -102,14 +132,6 @@ CREATE TABLE `transaction` (
   `user_id` varchar(255) NOT NULL,
   `item_id` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `transaction`
---
-
-INSERT INTO `transaction` (`transaction_id`, `user_id`, `item_id`) VALUES
-('TRFLK3XiZ', 'SE6blIbcj', '4'),
-('TRwWMKECu', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -131,11 +153,14 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `username`, `password`, `phone_number`, `address`, `role`) VALUES
-('1', 'Hugo', '123', '123', '123', 'buyer'),
-('BUdfz6zW6', 'Hugooo1', 'Hugo1234567@', '+62123456789', 'ASdwapoQW', 'buyer'),
-('BUEGw4Mu7', 'faldian', 'faldianchandra@', '+62123456789', 'HAHAHA', 'buyer'),
-('BUpdXX5sc', 'Hugo04', 'Hugo1234567@', '+62987654321', 'Jl. Kenanga Indah VII, Blok HG 38', 'buyer'),
-('SE6blIbcj', 'SellerTest', 'SellerTest@', '+62123456789', 'Testing', 'seller');
+('BUd3i0qL8', 'frankie_star', 'frankie001&', '+62998877669', '+62998877669', 'buyer'),
+('BUFwO7Ivx', 'john_doe', 'pass1234@', '+62812345678', '123 Main Street, Jakarta', 'buyer'),
+('BUpXyjomD', 'bob_builder', 'buildit99#', '+62223344556', '12 Hammer Lane, Surabaya', 'buyer'),
+('BUyINTmZT', 'clara_sky', 'clara@123', '+62334455667', '78 Skyview Blvd, Medan', 'buyer'),
+('SEa9YT6ZR', 'danny_phantom', 'ghosty99^', '+62556677889', '21 Phantom Rd, Bali', 'seller'),
+('SEgrAS8d2', 'alice_wonder', 'alice2023!', '+62876543212', '45 Wonderland Ave, Bandung', 'seller'),
+('SEtH097MQ', 'emma_coder', 'emma#2024', '+62112233447', '33 Code Street, Yogyakarta', 'seller'),
+('SEZheZTKT', 'harry_potter', 'expelliarmus*', '+62778899001', '+62778899001', 'seller');
 
 -- --------------------------------------------------------
 
@@ -154,8 +179,32 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`wishlist_id`, `item_id`, `user_id`) VALUES
-('WLiCmm3do', 'ITCW2mrc6', '1'),
-('WLldCq9SZ', '3', '1');
+('WL08tsU3D', 'IThSInj0a', 'BUpXyjomD'),
+('WL0zCJJ6M', 'ITLQfJrrh', 'BUyINTmZT'),
+('WL3bMODlJ', 'ITgOn7JUW', 'BUyINTmZT'),
+('WL4Q6aOmW', 'ITKqjfFuu', 'BUyINTmZT'),
+('WL6hyHQPy', 'ITk76vCL4', 'BUpXyjomD'),
+('WL7f5m3Fx', 'IThSInj0a', 'BUFwO7Ivx'),
+('WL9gbs6HH', 'ITeN33ium', 'BUpXyjomD'),
+('WL9YFGHbW', 'ITerOytnt', 'BUFwO7Ivx'),
+('WLazCyYBU', 'IT8OuQmWz', 'BUpXyjomD'),
+('WLBDCxBi6', 'ITUZFTXa7', 'BUd3i0qL8'),
+('WLcOfWfRZ', 'IT4JcYAMC', 'BUFwO7Ivx'),
+('WLEYAODtx', 'IT2N1cItd', 'BUFwO7Ivx'),
+('WLigj65fU', 'ITgOn7JUW', 'BUpXyjomD'),
+('WLIrp4HIL', 'ITJYRTfnD', 'BUFwO7Ivx'),
+('WLJ5NurYo', 'IT5mwE5Jo', 'BUFwO7Ivx'),
+('WLjxfuaSm', 'ITEEgHWgk', 'BUyINTmZT'),
+('WLKe3kLDx', 'ITyaNGKMn', 'BUyINTmZT'),
+('WLKPZnw8C', 'ITyaNGKMn', 'BUd3i0qL8'),
+('WLM7DMyes', 'ITn6TPnME', 'BUd3i0qL8'),
+('WLmF3KwaN', 'ITaVhWz2f', 'BUyINTmZT'),
+('WLod5m42r', 'ITerOytnt', 'BUd3i0qL8'),
+('WLqQvonyz', 'ITn6TPnME', 'BUyINTmZT'),
+('WLRf9zW3N', 'IT2N1cItd', 'BUd3i0qL8'),
+('WLrmjlJwE', 'ITn6TPnME', 'BUpXyjomD'),
+('WLVKh84LF', 'ITGxQAikU', 'BUpXyjomD'),
+('WLyt1sUvy', 'ITwGujW00', 'BUFwO7Ivx');
 
 --
 -- Indexes for dumped tables

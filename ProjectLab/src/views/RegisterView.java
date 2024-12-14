@@ -2,8 +2,6 @@ package views;
 
 import controllers.UserController;
 import javafx.application.Application;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
@@ -13,6 +11,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -34,9 +33,11 @@ public class RegisterView extends Application{
 	
 	ToggleGroup tgRadio;
 	
-	Label registerLabel, usernameLabel, passwordLabel, phonenumberLabel, addressLabel, roleLabel;
+	Label registerLabel, usernameLabel, passwordLabel, confirmPasswordLabel, phonenumberLabel, addressLabel, roleLabel;
 	
-	TextField usernameField, passwordField, phonenumberField, addressField;
+	TextField usernameField, phonenumberField, addressField;
+	PasswordField passwordField, confirmPasswordField;
+	
 	RadioButton buyerRadio, sellerRadio;
 	
 	Button registerButton;
@@ -54,12 +55,14 @@ public class RegisterView extends Application{
 		registerLabel = new Label("Register your account");
 		usernameLabel = new Label("Username");
 		passwordLabel = new Label("Password");
+		confirmPasswordLabel = new Label("Confirm password");
 		phonenumberLabel = new Label("Phone Number");
 		addressLabel = new Label("Address");
 		roleLabel = new Label("Role");
 		
 		usernameField = new TextField();
-		passwordField = new TextField();
+		passwordField = new PasswordField();
+		confirmPasswordField = new PasswordField();
 		phonenumberField = new TextField();
 		addressField = new TextField();
 		buyerRadio = new RadioButton("Buyer");
@@ -83,51 +86,55 @@ public class RegisterView extends Application{
 		gpForm.add(passwordLabel, 0, 2);
 		gpForm.add(passwordField, 0, 3);
 		
+		// confirm password
+		gpForm.add(confirmPasswordLabel, 0, 4);
+		gpForm.add(confirmPasswordField, 0, 5);
+		
 		// phonenumber
-		gpForm.add(phonenumberLabel, 0, 4);
-		gpForm.add(phonenumberField, 0, 5);
+		gpForm.add(phonenumberLabel, 0, 6);
+		gpForm.add(phonenumberField, 0, 7);
 		
 		// address
-		gpForm.add(addressLabel, 0, 6);
-		gpForm.add(addressField, 0, 7);
+		gpForm.add(addressLabel, 0, 8);
+		gpForm.add(addressField, 0, 9);
 		
 		// role
-		gpForm.add(roleLabel, 0, 8);
+		gpForm.add(roleLabel, 0, 10);
 		buyerRadio.setToggleGroup(tgRadio);
 		sellerRadio.setToggleGroup(tgRadio);
 		tgRadio.selectToggle(buyerRadio);
-		gpForm.add(buyerRadio, 0, 9);
-		gpForm.add(sellerRadio, 0, 10);
+		gpForm.add(buyerRadio, 0, 11);
+		gpForm.add(sellerRadio, 0, 12);
 		
 		// register button
 		registerButton.setMaxWidth(Double.MAX_VALUE);
-		gpForm.add(registerButton, 0, 11);
+		gpForm.add(registerButton, 0, 13);
 		
 		// LoginLink
-		gpForm.add(loginLink, 0, 12);		
+		gpForm.add(loginLink, 0, 14);		
 		
 		// Set size for gridpane
-		gpForm.setVgap(7);
-		gpForm.setPadding(new Insets(20, 20, 20, 20)); 
+		gpForm.setVgap(6);
+		gpForm.setPadding(new Insets(6, 40, 40, 40)); 
 		gpForm.setAlignment(Pos.CENTER);
 		
 		bp.setTop(hbTitle);
 		BorderPane.setMargin(hbTitle, new Insets(10));
 		
-		bp.setBottom(gpForm);
+		bp.setCenter(gpForm);
 		BorderPane.setMargin(gpForm, new Insets(10));
 	}
 	
 	private void Register() {
 		String Username = usernameField.getText().toString();
 		String Password = passwordField.getText().toString();
+		String confirmPassword = confirmPasswordField.getText().toString();
 		String Phone_Number = phonenumberField.getText().toString();
-		
 		String Address = addressField.getText().toString();
 		RadioButton selected = (RadioButton) tgRadio.getSelectedToggle();
 		String Role = selected.getText().toString();
 		
-		String validation = UserController.getInstance().checkAccountValidation(Username, Password, Phone_Number, Address);
+		String validation = UserController.getInstance().checkAccountValidation(Username, Password, Phone_Number, Address, confirmPassword);
 		
 		if(validation != null) {
 			alert.setAlertType(AlertType.ERROR);
@@ -139,10 +146,11 @@ public class RegisterView extends Application{
 			if(result) {
 				usernameField.clear();
 				passwordField.clear();
+				confirmPasswordField.clear();
 				phonenumberField.clear();
 				addressField.clear();
 				addressField.clear();
-				selected.setSelected(false);
+				tgRadio.selectToggle(buyerRadio);
 				
 				alert.setAlertType(AlertType.INFORMATION);
 				alert.setContentText("Account Registered");

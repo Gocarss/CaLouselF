@@ -143,7 +143,7 @@ public class User {
 		return false;
 	}
 	
-	public String CheckAccountValidation(String Username, String Password, String Phone_Number, String Address) {
+	public String CheckAccountValidation(String Username, String Password, String Phone_Number, String Address, String confirmPassword) {
 		String query = "SELECT * FROM `user` WHERE `username`=?";
 		PreparedStatement ps = Connect.getConnection().prepareStatement(query);
 		
@@ -172,6 +172,8 @@ public class User {
 			return "Password must at least be 8 character long!";
 		}else if(!(Password.contains("!") || Password.contains("@") || Password.contains("#") || Password.contains("$") || Password.contains("%") || Password.contains("^") || Password.contains("&") || Password.contains("*"))) {
 			return "Password must include special characters (!, @, #, $, %, ^, &, *)";
+		}else if(!Password.equals(confirmPassword)) {
+			return "Password and Confirm password must be the same";
 		}
 	    
 		// Check Phone Number
@@ -180,7 +182,7 @@ public class User {
         }else {
     		String tempNumber = Phone_Number.replace("+62", "");
     		if(tempNumber.length() != 9) {
-    			return "Must be 10 numbers long (+62 counts as one, Example: +62123456789)";
+    			return "Must be 10 numbers long (+62 counts as one)";
     		}
     		
     		try {

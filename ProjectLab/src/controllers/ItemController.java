@@ -55,8 +55,12 @@ public class ItemController {
 		return itemModel.OfferPrice(Item_id, item_price, Buyer_id);
 	}
 	
-	public Double getCurrentOffer(String Item_id) {
-		return itemModel.getCurrentOffer(Item_id);
+	public String getCurrentOfferBuyer(String Item_id) {
+		return itemModel.getCurrentOfferBuyer(Item_id);
+	}
+	
+	public Double getCurrentOfferPrice(String Item_id) {
+		return itemModel.getCurrentOfferPrice(Item_id);
 	}
 	
 	public String CheckOfferValidation(String Item_id, String Offer_price) {
