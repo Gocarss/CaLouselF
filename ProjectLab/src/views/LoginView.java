@@ -97,7 +97,7 @@ public class LoginView extends Application{
 		String username = usernameField.getText().toString();
 		String password = passwordField.getText().toString();
 		
-		if(username.isEmpty() || password.isEmpty()) {
+		if(username.isBlank() || password.isBlank()) {
 			alert.setAlertType(AlertType.ERROR);
 			alert.setContentText("Username or Password cannot be empty");
 			alert.show();

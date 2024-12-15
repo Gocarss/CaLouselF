@@ -62,11 +62,13 @@ public class OfferedItemView extends Application{
 	
 	Button backButton, acceptButton, declineButton;
 	
+	// OfferedItemView Constructor
 	public OfferedItemView(String user_id, String user_role) {
 		this.user_id = user_id;
 		this.user_role = user_role;
 	}
 
+	// Initialize the element
 	private void initialize() {
 		bp = new BorderPane();
 		sc = new Scene(bp);
@@ -97,6 +99,7 @@ public class OfferedItemView extends Application{
 		declineButton = new Button("Decline");
 	}
 	
+	// Layouting
 	private void layouting() {
 		// Set the ComboBox show the userName and making the selection of cb is only Logout
 		cb.setPromptText(UserController.getInstance().fetchUsername(user_id));
@@ -144,6 +147,7 @@ public class OfferedItemView extends Application{
 		bp.setBottom(hbButtons);
 	}
 	
+	// Method to view offered item
 	private void ViewOfferedItem() {
 		// Calling item controller for using ViewItem() function
 		offeredItem = ItemController.getInstance().ViewOfferItem(user_id);
@@ -185,6 +189,7 @@ public class OfferedItemView extends Application{
 			alert.setAlertType(AlertType.ERROR);
 			alert.setContentText("Reason cannot be empty");
 		}
+		// Refresh
 		ViewOfferedItem();
 		alert.show();
 	}
@@ -242,6 +247,7 @@ public class OfferedItemView extends Application{
 					return;
 				}
 				
+				// Confirmation
 				alert.setAlertType(AlertType.CONFIRMATION);
 				alert.setContentText("Confirm Purchase?");
 				alert.showAndWait().ifPresent(response -> {
@@ -266,6 +272,8 @@ public class OfferedItemView extends Application{
 					alert.show();
 					return;
 				}
+				
+				// Enter reason
 				tdReason.getEditor().clear();
 				tdReason.setHeaderText("Enter Reason");
 				tdReason.showAndWait().ifPresent(response -> {

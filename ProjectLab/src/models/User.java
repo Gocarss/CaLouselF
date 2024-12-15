@@ -148,7 +148,7 @@ public class User {
 		PreparedStatement ps = Connect.getConnection().prepareStatement(query);
 		
 		// Check if empty
-		if (Username.isEmpty() || Password.isEmpty() || Phone_Number.isEmpty() || Address.isEmpty()) {
+		if (Username.isBlank() || Password.isBlank() || Phone_Number.isBlank() || Address.isBlank()) {
 			return "All fields must be filled";
 		}
 		

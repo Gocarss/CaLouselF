@@ -864,6 +864,7 @@ public class HomepageView extends Application{
 					return;
 				}
 				
+				// Confirmation
 				alert.setAlertType(AlertType.CONFIRMATION);
 				alert.setContentText("Approve Item?");
 				alert.showAndWait().ifPresent(response -> {
@@ -888,7 +889,7 @@ public class HomepageView extends Application{
 					return;
 				}
 				
-				// Input response
+				// Input Reason
 				tdInput.getEditor().clear();
 				tdInput.setHeaderText("Enter Reason");
 				tdInput.showAndWait().ifPresent(response -> {

@@ -202,7 +202,7 @@ public class Item {
 	
 	public String CheckItemValidation(String Item_name, String Item_category, String Item_size, String Item_price) {
 		// Check if empty
-		if (Item_name.isEmpty() || Item_category.isEmpty() || Item_size.isEmpty() || Item_price.isEmpty()) {
+		if (Item_name.isBlank() || Item_category.isBlank() || Item_size.isBlank() || Item_price.isBlank()) {
 			return "All fields must be filled";
 		}
 		
@@ -341,7 +341,7 @@ public class Item {
 		PreparedStatement ps = Connect.getConnection().prepareStatement(query);
 		
 		// Check offer price if is empty
-		if (Offer_price.isEmpty()) {
+		if (Offer_price.isBlank()) {
 			return "Offer field must be filled";
 		}
 		
